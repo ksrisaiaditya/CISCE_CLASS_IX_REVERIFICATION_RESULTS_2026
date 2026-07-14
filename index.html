@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CICSE CLASS - IX BOARD EXAMINATION REVERIFICATION RESULTS : 2026</title>
+<title>CISCE CLASS – IX BOARD RE–VERIFICATION RESULTS : 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=0.3">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -10,6 +10,14 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
+*{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+
+  -webkit-touch-callout:none;
+}
 .announcement-bar{
 
 background:yellow;
@@ -121,11 +129,11 @@ td{
   color: #0b2c5f;
   font-weight: bold;
 }
-body{margin:0;font-family: "Segoe UI", Arial, sans-serif;background:#fff8e1;}
+body{margin:0;font-family: "Segoe UI", Arial, sans-serif;background:#f0f7f4;}
 
 .topbar{
 align-items:center;
-position:static;top:10;background:navy;color:white;
+position:static;top:10;background:#1E3A8A;color:white;
 padding:18px;display:flex;justify-content:space-between;
 }
 #countdown{
@@ -143,7 +151,7 @@ padding:18px;display:flex;justify-content:space-between;
 }
 
 .live-dot{
-width:35px;height:35px;border-radius:90%;
+width:25px;height:25px;border-radius:90%;
 animation:pulse 0.125s infinite;
 display:inline-block;margin-right:5px;
 }
@@ -160,7 +168,7 @@ display:inline-block;margin-right:5px;
 align-items:center;
   max-width:900px;
   margin:100px auto;
-  background:white;
+  background:#fefaf0;
   padding:20px 30px; /* reduced side gap */
   border-radius:12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -233,66 +241,87 @@ font-weight:bold;
 
 color:#0b2c5f;
 }
+.result-celebration{
+  display:none;
+  text-align:center;
+  padding:40px;
+  background:linear-gradient(135deg,#fff8e1,#e8f5e9);
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  animation:zoomIn 0.8s ease;
+}
+
+.result-celebration h1{
+  font-size:45px;
+  color:#2e7d32;
+}
+
+.result-celebration p{
+  font-size:28px;
+  color:#0b2c5f;
+  font-weight:bold;
+}
+
+@keyframes zoomIn{
+  from{
+    transform:scale(0.5);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.unlock-btn{
+  background:purple;
+  color:white;
+  font-size:25px;
+  padding:15px;
+  border-radius:15px;
+  cursor:pointer;
+}
+.authentication-panel{
+
+background:#f8f9fa;
+
+border:3px solid gold;
+
+border-radius:12px;
+
+padding:20px;
+
+margin:20px 0;
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#0b2c5f;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+}
+
+.auth-line{
+
+margin:12px 0;
+
+}
+
+.auth-success{
+
+color:green;
+
+font-weight:900;
+
+}
 </style>
 </head>
 
 <body>
-<div id="websiteLock" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-z-index:999999;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-">
-
-<div style="
-color:white;
-font-size:40px;
-font-weight:bold;
-margin-bottom:90px;
-white-space:nowrap;
-">
-COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS
-</div>
-
-<div style="
-color:yellow;
-font-size:50px;
-font-weight:bold;
-margin-bottom:50px;
-">
-OFFICIAL NOTICE : 
-</div>
-<div style="
-color:red;
-font-size:40px;
-font-weight:bold;
-margin-bottom:20px;
-">
-
-ACCESS TO THIS RESULT PORTAL HAS NOT YET BEEN AUTHORIZED BY THE COUNCIL. CANDIDATES WILL BE PERMITTED TO ACCESS THE PORTAL ONLY UPON THE OFFICIAL DECLARATION AND PUBLICATION OF RESULTS.
-</div>
-
-<div style="
-color:orange;
-font-size:40px;
-font-weight:bold;
-margin-top:50px;
-">
-PLEASE VISIT AGAIN AFTER THE OFFICIAL PORTAL OPENING TIME.
-</div>
-
-</div>
-
-
-<div id="websiteContent" style="display:none;">
 <button onclick="toggleMode()" id="modeBtn" style="
 position:end;
 top:15px;
@@ -302,9 +331,9 @@ width:auto;
 padding:10px 18px;
 border:none;
 border-radius:30px;
-background: skyblue;
-color:black;
-font-size:25px;
+background: red;
+color:white;
+font-size:30px;
 font-weight:bold;
 cursor:pointer;
 box-shadow:0 0 10px rgba(0,0,0,0.3);
@@ -332,8 +361,8 @@ gap:12px;
 
 <div style="
 font-weight:100;
-color:white;
-font-size:40px;
+color: white;
+font-size:17px;
 letter-spacing:5px;
 ">
 <span id="liveText">
@@ -351,7 +380,7 @@ letter-spacing:5px;
 
 <marquee scrollamount="20">
 
-🏛️ THE COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS [CISCE] WELCOMES ALL THE CANDIDATES TO THE OFFICIAL CLASS - IX BOARD EXAMINATION REVERIFICATION RESULTS PORTAL : 2026 🏛️ • 🟢 LIVE RESULT PUBLICATION SERVICES HAVE NOW BEEN INTEGRATED WITH THE SECURE NATIONAL ACADEMIC RESULT NETWORK 🟢 • 🔐 CANDIDATES ARE STRONGLY ADVISED TO MAINTAIN THE CONFIDENTIALITY OF THEIR LOGIN CREDENTIALS DURING RESULT ACCESS 🔐 • 🎊 THE CICSE CLASS - IX BOARD EXTENDS ITS SINCERE APPRECIATION TO ALL STUDENTS FOR THEIR DEDICATION, DISCIPLINE, PERSEVERANCE AND ACADEMIC COMMITMENT THROUGHOUT THE SESSION 2025–26 🎊 • 🔗 DIGITAL SCORECARDS GENERATED THROUGH THIS PORTAL ARE PROTECTED BY ADVANCED QR AUTHENTICATION AND SECURE VERIFICATION TECHNOLOGY 🔗 • 🎓 THE COUNCIL PROUDLY CONGRATULATES ALL THE CANDIDATES AND WISHES THEM CONTINUED SUCCESS IN THEIR FUTURE ACADEMIC ENDEAVOURS 🎓
+🏛️ THE COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS [CISCE] WELCOMES ALL THE CANDIDATES TO THE OFFICIAL CLASS – IX BOARD RE–VERIFICATION RESULTS PORTAL : 2026 🏛️ • 🟢 LIVE RESULT PUBLICATION SERVICES HAVE NOW BEEN INTEGRATED WITH THE SECURE NATIONAL ACADEMIC RESULT NETWORK 🟢 • 🔐 CANDIDATES ARE STRONGLY ADVISED TO MAINTAIN THE CONFIDENTIALITY OF THEIR LOGIN CREDENTIALS DURING RESULT ACCESS 🔐 • 🎊 THE CISCE CLASS – IX BOARD EXTENDS ITS SINCERE APPRECIATION TO ALL STUDENTS FOR THEIR DEDICATION, DISCIPLINE, PERSEVERANCE AND ACADEMIC COMMITMENT THROUGHOUT THE SESSION 2025–26 🎊 • 🔗 DIGITAL SCORECARDS GENERATED THROUGH THIS PORTAL ARE PROTECTED BY ADVANCED QR AUTHENTICATION AND SECURE VERIFICATION TECHNOLOGY 🔗 • 🎓 THE COUNCIL PROUDLY CONGRATULATES ALL THE CANDIDATES AND WISHES THEM CONTINUED SUCCESS IN THEIR FUTURE ACADEMIC ENDEAVOURS 🎓
 
 </marquee>
 
@@ -365,10 +394,14 @@ margin-bottom:9px;
 
 <img
 src="logo.png"
-
+draggable="false"
+oncontextmenu="return false;"
+ondragstart="return false;"
+onselectstart="return false;"
 style="
-width:250px;
-height:250px;
+pointer-events:none;
+width:350px;
+height:350px;
 display:block;
 margin:auto;
 object-fit:contain;
@@ -382,41 +415,71 @@ box-shadow:0 0 20px rgba(0,0,0,0.25);
 <div style="height:45px;"> </div>
 <div style="font-weight:1000; color:darkgreen; font-size:18px; letter-spacing:2px;">
 <h1 style="text-align:center;">
-COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS.
+COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS
 </h1>
-<div style="font-weight:1000; color:red; font-size:14px; letter-spacing:2px;">
+<div style="font-weight:1000; color:red; font-size:18px; letter-spacing:2px;">
 <h1 style="text-align:center;">
-<div style="height:30px;"> </div>
-CLASS - IX BOARD EXAMINATION REVERIFICATION RESULTS PORTAL : 2026.
+<div style="height:45px;"> </div>
+CLASS – IX RE–VERIFICATION RESULTS PORTAL : 2026
 </h1>
 </div>
+</div>
+<div id="maintenanceBox" style="
+display:none;
+max-width:900px;
+margin:100px auto;
+background: lightgrey;
+border:4px solid yellow;
+border-radius:15px;
+padding:50px 30px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+color:red;
+box-shadow:0 0 20px rgba(0,0,0,0.25);
+">
+
+🏛️ CISCE CLASS – IX BOARD'S MAINTENANCE NOTICE 🏛️
+
+<br><br>
+
+<div id="maintenanceMessage">
+THE CISCE RESULTS PORTAL IS CURRENTLY UNDERGOING SCHEDULED MAINTENANCE.
 </div>
 
-<div class="box">
+</div>
+<div class="box" id="loginBox">
+
 <div style="color:blue;">
-<div style="height:0px;"> </div>
-<div style="font-weight:1000; font-size:18px; letter-spacing:2px;"> 
+<div style="height:18px;"> </div>
+<div style="font-weight:1000; font-size:30px; letter-spacing:2px;"> 
 <h2 style="text-align:center;">
-🔐 CANDIDATE'S LOGIN CREDENTIALS 🔐
+🔐 CANDIDATE'S LOGIN DASHBOARD 🔐
 </h2>
 <div style="height:10px;"> </div>
 <input id="ht"
 type="password"
-placeholder="CISCE CLASS - IX HALL TICKET NUMBER"
+placeholder="CISCE CLASS – IX HALL TICKET NUMBER"
 maxlength="12"
+inputmode="numeric"
+pattern="[0-9]*"
+oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 style="-webkit-text-security:disc;">
 <input id="dob"
 type="password"
 placeholder="DATE OF BIRTH IN [DDMMYYYY] FORMAT"
 maxlength="10"
+inputmode="numeric"
+pattern="[0-9]*"
 oninput="formatDOB(this)"
 style="-webkit-text-security:disc;">
 <input id="scode"
 type="password"
-placeholder="CICSE CLASS - IX SCHOOL CODE"
+placeholder="CISCE CLASS – IX SCHOOL CODE"
 maxlength="12"
 style="-webkit-text-security:disc;">
-<input id="cap" placeholder="CAPTCHA" maxlength="7">
+
+<input id="cap" placeholder="ENTER CAPTCHA" maxlength="7">
 <div style="
 display:flex;
 align-items:center;
@@ -453,12 +516,102 @@ font-size:45px;
 </button>
 
 </div>
-<button onclick="login()" style="width:100%;background:black;color: white;">
-🏆🏆🏆 OPEN MY RESULT SCORECARD 🏆🏆🏆
+<button onclick="login()" style="width:100%;background:purple;color: white;">
+🏆🏆🏆 SHOW MY RESULT SCORECARD 🏆🏆🏆
 </button>
+<div id="loginGap" style="height:100px;"></div>
+<div id="forgotContainer">
+
+<button
+id="forgotBtn"
+onclick="toggleRecoveryBox()"
+style="
+background: yellow;
+color: darkgreen;
+margin-top:10px;
+">
+🔎 FORGOT YOUR CISCE CLASS – IX HALL TICKET NUMBER❓
+</button>
+
 </div>
-<div style="color:red;">
+</div>
+<div style="color: blue;">
 <div id="result" class="box"></div>
+<div class="box" id="recoveryBox" style="
+max-width:700px;
+text-align:center;
+display:none;
+background:white;
+color:white;
+border:3px solid gold;
+">
+<div style="font-weight:1000; font-size:23px; letter-spacing:2px;"> 
+<h2 style="color: red;">
+<div style="height:15px;"> </div>
+🔎 ENTER REQUIRED LOGIN CREDENTIALS 🔎
+</h2>
+</div>
+<div style="height:15px;"> </div>
+
+<input id="rname" placeholder="CANDIDATE NAME (AS PER ADMISSION CARD)">
+
+<input id="rschool" placeholder="SCHOOL NAME (AS PER ADMISSION CARD)">
+
+<input id="rscode" placeholder="SCHOOL CODE (AS PER ADMISSION CARD)">
+
+<input id="rdob"
+placeholder="DATE OF BIRTH IN [DDMMYYYY] FORMAT"
+maxlength="10"
+oninput="formatDOB(this)">
+
+<input id="rcaptcha" placeholder="ENTER CAPTCHA" maxlength="7">
+
+<div style="
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+">
+
+<div id="recoveryCaptchaBox" style="
+flex:1;
+background:#eee;
+padding:12px;
+font-size:35px;
+text-align:center;
+font-weight:bold;
+color: blue;
+border-radius:10px;
+">
+</div>
+
+<button
+onclick="genRecoveryCaptcha()"
+style="
+width:auto;
+padding:10px 15px;
+margin:0;
+background:white;
+border-radius:10px;
+font-size:45px;
+">
+🔁
+</button>
+
+</div>
+
+<button onclick="recoverHallTicket()" style="background: purple;">
+🔍 RETRIEVE MY HALL TICKET NUMBER 🔍
+</button>
+
+<div id="recoveryResult"
+style="
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+"></div>
+
+</div>
 
 <div id="dateTimeFooter" style="
 width:98%;
@@ -469,7 +622,7 @@ text-align:center;
 
 padding:15px 10px;
 
-font-size:25px;
+font-size:33px;
 font-weight:bold;
 
 letter-spacing:1px;
@@ -482,10 +635,26 @@ DATE : --/--/---- | ⏰ TIME : --:--:--
 <script>
 
 let downloaded = {};
+/* DAILY MAINTENANCE SETTINGS */
+
+/* DAILY MAINTENANCE SETTINGS */
+
+// EVERYDAY MAINTENANCE TIME
+
+const maintenanceStartHour = 0; 
+const maintenanceStartMinute = 0;
+
+const maintenanceEndHour = 6;
+const maintenanceEndMinute = 0;
 
 const SCHOOL_CODE="TSSJPSMLK050";
-const websiteOpenTime = new Date("2026-06-03T17:00:00").getTime(); // Portal opens
-const releaseTime = new Date("2026-06-04T13:00:00").getTime();     // Results live
+const LOGOUT_TIME_MINUTES = 5; // Change to any number of minutes
+let releaseTime=new Date("2026-07-16T13:00:00").getTime();
+const portalCloseTime = new Date("2026-08-14T23:59:59").getTime(); // Change to your closing date & time
+if (Date.now() >= portalCloseTime) {
+    document.documentElement.innerHTML = "";
+    window.stop();
+}
 
 const htEl=document.getElementById("ht");
 const dobEl=document.getElementById("dob");
@@ -496,15 +665,131 @@ const countdownEl=document.getElementById("countdown");
 const liveDot=document.getElementById("liveDot");
 const liveText=document.getElementById("liveText");
 
+
+/* ADD STEP 3 HERE */
+function checkMaintenance(){
+
+  const now = new Date();
+
+  let startTime = new Date();
+
+startTime.setHours(
+  maintenanceStartHour,
+  maintenanceStartMinute,
+  0,
+  0
+);
+
+
+let endTime = new Date();
+
+endTime.setHours(
+  maintenanceEndHour,
+  maintenanceEndMinute,
+  0,
+  0
+);
+
+  const box = document.getElementById("maintenanceBox");
+  const loginBox = document.getElementById("loginBox");
+
+  // If maintenance is active
+if(
+  (startTime > endTime && (now >= startTime || now <= endTime))
+  ||
+  (startTime <= endTime && now >= startTime && now <= endTime)
+){
+
+    box.style.display = "block";
+    loginBox.style.display = "none";
+
+    // remaining time
+let remaining;
+
+
+if(now <= endTime){
+
+    remaining = endTime - now;
+
+}else{
+
+    let tomorrow = new Date(endTime);
+
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    remaining = tomorrow - now;
+
+}
+
+
+if(remaining < 0) remaining = 0;
+
+    let hrs = Math.floor(remaining / 3600000);
+    let mins = Math.floor((remaining % 3600000) / 60000);
+    let secs = Math.floor((remaining % 60000) / 1000);
+
+    document.getElementById("maintenanceMessage").innerHTML = `
+      <div style="height:2px;"></div>
+
+      🔐 THE CISCE RESULTS PORTAL IS CURRENTLY IN OFFLINE MODE 🔐
+
+      <div style="height:30px;"></div>
+
+      🚧 SCHEDULED MAINTENANCE IS CURRENTLY IN PROGRESS 🚧
+
+      <div style="height:28px;"></div>
+
+      ⏳ MAINTENANCE PERIOD ENDS IN ⏳
+      <div style="height:30px;"> </div>
+
+      <div style="font-size:33px;font-weight:bold;color:black;margin-top:15px;">
+        ${String(hrs).padStart(2,'0')} HOURS :
+        ${String(mins).padStart(2,'0')} MINUTES :
+        ${String(secs).padStart(2,'0')} SECONDS
+      </div>
+
+      <div style="height:40px;"></div>
+
+      🗓️ PLEASE VISIT AGAIN AFTER THE MAINTENANCE PERIOD ENDS 🗓️
+    `;
+
+  } else {
+
+    box.style.display = "none";
+    loginBox.style.display = "block";
+
+  }
+}
+
 /* CAPTCHA */
 let captcha="";
 function gen(){
 let c="ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
 captcha="";
 for(let i=0;i<7;i++)captcha+=c[Math.floor(Math.random()*c.length)];
-document.getElementById("captchaBox").innerText="CAPTCHA: "+captcha;
+document.getElementById("captchaBox").innerText="CAPTCHA : "+captcha;
 }
 gen();
+let recoveryCaptcha="";
+
+function genRecoveryCaptcha(){
+
+let chars="ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
+
+recoveryCaptcha="";
+
+for(let i=0;i<7;i++){
+
+recoveryCaptcha += chars[Math.floor(Math.random()*chars.length)];
+
+}
+
+document.getElementById("recoveryCaptchaBox").innerText =
+"CAPTCHA : " + recoveryCaptcha;
+
+}
+
+genRecoveryCaptcha();
 
 function formatDOB(input) {
     let v = input.value.replace(/\D/g, '');
@@ -528,46 +813,60 @@ const subjects=[
 "HISTORY AND CIVICS","GEOGRAPHY","COMPUTER SCIENCE","OPTIONALS"
 ];
 
-/* MARKS */
-const failList = new Set([
-  "266422510098",
-  "265523463897",
-  "263807575953",
-  "261633204335",
-  "261904453957",
-  "264617322508"
-]);
 function genMarks(id){
-let seed=parseInt(id.slice(-10));
-let m={};
+  let seed = parseInt(id.slice(-10));
+  let m = {};
 
-subjects.forEach((s,i)=>{
-let base=(seed*(i+5)+(i*i*13))%100;
+  const isTopper = (String(id) === "260034633744");
 
-if(s==="PHYSICS"){
+  subjects.forEach((s, i) => {
 
-  if(
-    String(id)==="267336730000" ||
-    String(id)==="267735934860"
-  ){
-    m[s]=35; // Exact pass mark
-  }
+    let min = 0, max = 100;
 
-  else if(failList.has(String(id))){
-    m[s]=25+(base%10); // Fail students: 25-34
-  }
+    switch(i){
+      case 0: min = 70; max = 96; break;
+      case 1: min = 50; max = 88; break;
+      case 2: min = 80; max = 96; break;
+      case 3: min = 40; max = 70; break;
+      case 4: min = 40; max = 68; break;
+      case 5: min = 70; max = 100; break;
+      case 6: min = 80; max = 100; break;
+      case 7: min = 85; max = 100; break;
+      case 8: min = 70; max = 100; break;
+      case 9: min = 80; max = 100; break;
+      case 10: min = 83; max = 100; break;
+    }
 
-  else{
-    m[s]=36+(base%35); // Others: 36-70
-  }
+    let base = (seed * (i + 7) + i * 11) % (max - min + 1);
 
+    let mark = isTopper ? max : (min + base);
+
+    // FAIL RULES
+
+    const physicsFail = new Set(["264617322508"]);
+
+if (s === "PHYSICS") {
+    if (String(id) === "263807575953") {
+        mark = 35; // Exactly 35 marks
+    } else if (physicsFail.has(String(id))) {
+        mark = 25 + (base % 10); // Fail
+    }
 }
-else if(s==="MATHEMATICS") m[s]=40+(base%36);
-else if(s==="ENGLISH LITERATURE") m[s]=50+(base%29);
-else m[s]=70+(base%30);
-});
 
-return m;
+const mathsFail = new Set(["266422510098"]);
+
+if (s === "MATHEMATICS") {
+    if (String(id) === "261633204335") {
+        mark = 35; // Exactly 35 marks
+    } else if (mathsFail.has(String(id))) {
+        mark = 20 + (base % 15); // Fail
+    }
+}
+
+    m[s] = mark;
+  });
+
+  return m;
 }
 
 /* 150 HALL TICKETS */
@@ -876,22 +1175,235 @@ const DOB = [
 "15/07/2011",
 "15/02/2011"
 ];
+const NAMES = [
+"ADITYA KUMAR",
+"ARJUN REDDY",
+"SAI TEJA",
+"VISHNU VARDHAN",
+"ROHIT SHARMA",
+"PRANAV KUMAR",
+"HARSHITH REDDY",
+"KARTHIK SAI",
+"NIKHIL VARMA",
+"ABHINAV REDDY",
+"MANOJ KUMAR",
+"LOKESH SAI",
+"AKHIL REDDY",
+"SRIKAR VARMA",
+"TEJASWIN KUMAR",
+"RISHI KUMAR",
+"VAMSI KRISHNA",
+"SAI CHARAN",
+"NAVEEN KUMAR",
+"YASHWANTH REDDY",
 
+"BHARATH KUMAR",
+"CHANDRA SEKHAR",
+"DHANUSH REDDY",
+"ESHWAR KUMAR",
+"GANESH REDDY",
+"HARISH KUMAR",
+"JAGADEESH REDDY",
+"KIRAN KUMAR",
+"LALITH SAI",
+"MADHAV REDDY",
+"NAGA SAI",
+"OMKAR REDDY",
+"PRUTHVI RAJ",
+"RAHUL KUMAR",
+"SANDEEP REDDY",
+"TARUN KUMAR",
+"UDAY KUMAR",
+"VARUN REDDY",
+"YOGESH KUMAR",
+"ABHISHEK REDDY",
+
+"AKASH KUMAR",
+"ANIRUDH REDDY",
+"ASHWIN KUMAR",
+"BALAJI REDDY",
+"CHAITANYA KUMAR",
+"DARSHAN REDDY",
+"DEEPAK KUMAR",
+"GOKUL REDDY",
+"HEMANTH KUMAR",
+"JAYANTH REDDY",
+"KIRAN VARMA",
+"KRISHNA TEJA",
+"MAHESH REDDY",
+"MANIKANTA",
+"NARESH KUMAR",
+"NITHIN REDDY",
+"PHANINDRA",
+"PRADEEP KUMAR",
+"RAKESH REDDY",
+"RAM CHARAN",
+
+"SANJAY KUMAR",
+"SATYA SAI",
+"SHARATH KUMAR",
+"SIDDHARTH REDDY",
+"SRIHARI",
+"SUDHEER KUMAR",
+"SURESH REDDY",
+"TEJA KUMAR",
+"UDIT REDDY",
+"VAMSHI REDDY",
+"VENKAT KUMAR",
+"VINAY REDDY",
+"VIVEK KUMAR",
+"YASH KUMAR",
+"ADARSH REDDY",
+"AJAY KUMAR",
+"ANAND REDDY",
+"ARAVIND KUMAR",
+"BHANU PRAKASH",
+"CHARAN TEJA",
+
+"DILEEP KUMAR",
+"GANESH KUMAR",
+"GOPI KRISHNA",
+"HARI KRISHNA",
+"JEEVAN REDDY",
+"KALYAN KUMAR",
+"KARTHIKEYA",
+"KESHAV REDDY",
+"LOHITH KUMAR",
+"MOHAN REDDY",
+"MUKESH KUMAR",
+"NAVEEN REDDY",
+"NIKHIL KUMAR",
+"PRANITH REDDY",
+"RAVI KUMAR",
+"RUPESH REDDY",
+"SAI KIRAN",
+"SAI PRASAD",
+"SAMARTH REDDY",
+"SHIVA KUMAR",
+
+"SHYAM REDDY",
+"SOMESH KUMAR",
+"SRIKANTH REDDY",
+"SUDARSHAN",
+"SUKESH REDDY",
+"TANMAY KUMAR",
+"TRINADH REDDY",
+"VARDHAN REDDY",
+"VIJAY KUMAR",
+"VINOD REDDY",
+"VISHAL KUMAR",
+"YUVRAJ REDDY",
+"ABHIJITH",
+"AKSHAY REDDY",
+"AMAN KUMAR",
+"ANISH REDDY",
+"ARYAN KUMAR",
+"BHAVYA TEJA",
+"CHIRANJEEVI",
+"DEV KUMAR",
+
+"DHRUV REDDY",
+"GAUTHAM REDDY",
+"GIRISH KUMAR",
+"HITESH REDDY",
+"JASHITH REDDY",
+"KIRAN TEJA",
+"KRISH REDDY",
+"MANOJ REDDY",
+"NANDAN KUMAR",
+"NAVEEN TEJA",
+"PRAVEEN REDDY",
+"RAJESH KUMAR",
+"RISHABH REDDY",
+"ROHAN KUMAR",
+"SAI ADITYA",
+"SAI KUMAR",
+"SATHWIK REDDY",
+"SHASHANK REDDY",
+"SRINIVAS KUMAR",
+"VENKATESH REDDY",
+
+"VIKRAM KUMAR",
+"YOGI REDDY",
+"ARUN KUMAR",
+"JITHENDRA REDDY",
+"RAGHAV REDDY",
+"SAI NIKHIL",
+"PRANAY KUMAR",
+"VAMSI SAI",
+"ADVAITH REDDY",
+"KRISHNA REDDY"
+];
 /* BUILD DATABASE */
 let students={};
+
 HT.forEach((h,i)=>{
-students[h]={dob:DOB[i],marks:genMarks(String(h))};
+  students[h]={
+    name: NAMES[i],
+    dob: DOB[i],
+    marks: genMarks(String(h))
+  };
+});
+// 👉 CALCULATE TOTAL FIRST
+Object.keys(students).forEach(ht=>{
+  let total = 0;
+  for(let s of subjects){
+    total += students[ht].marks[s];
+  }
+  students[ht].total = total;
 });
 
+// 👉 THEN RANKING
+let ranking = Object.entries(students)
+.sort((a,b)=>b[1].total - a[1].total);
+
+ranking.forEach((item,index)=>{
+  students[item[0]].rank = index + 1;
+});
 /* LOCK */
 function isLocked(){
   return Date.now() < releaseTime;
 }
 
 /* LOGIN */
+function isMaintenanceActive(){
+
+  const now = new Date();
+
+  let startTime = new Date();
+  startTime.setHours(
+    maintenanceStartHour,
+    maintenanceStartMinute,
+    0,
+    0
+  );
+
+  let endTime = new Date();
+  endTime.setHours(
+    maintenanceEndHour,
+    maintenanceEndMinute,
+    0,
+    0
+  );
+
+
+  if(startTime > endTime){
+
+    return now >= startTime || now <= endTime;
+
+  }else{
+
+    return now >= startTime && now <= endTime;
+
+  }
+
+}
 
 function login(){
-
+if(isMaintenanceActive()){
+  alert("THE PORTAL IS CURRENTLY UNDER MAINTENANCE.");
+  return;
+}
 if(isLocked()){
 resultEl.innerHTML = `
 <div style="text-align:center; line-height:2.0; font-size:21px; background:#E3F2FD; color:#0b2c5f;">
@@ -900,10 +1412,10 @@ resultEl.innerHTML = `
 
 🚨 The moment of achievement for all the students is almost here to an end. 🚨<br>
 
-🎊🎊🎊 We are all honored to announce that our dearest CHIEF COORDINATOR, MR. KAMUTAPU SRI SAI ADITYA will officially declare the CICSE CLASS - IX BOARD EXAMINATIONS REVERIFICATION RESULTS - 2026. 🔊🔊🔊<br>
+🎊🎊🎊 We are all honored to announce that our dearest CHIEF COORDINATOR, MR. KAMUTAPU SRI SAI ADITYA will officially declare the CISCE CLASS – IX BOARD RE–VERIFICATION RESULTS : 2026. 🔊🔊🔊<br>
 🎓🎓🎓 Success belongs to all those who persevere ‼️ 🎓🎓🎓<br>
 
-🏆🏆 The CICSE CLASS - IX BOARD appreciates the patience, dedication and hardwork shown by all the candidates throughout the academic session. 🏆🏆<br>
+🏆🏆 The CISCE CLASS – IX BOARD appreciates the patience, dedication and hardwork shown by all the candidates throughout the academic session. 🏆🏆<br>
 
 📌📌✨ Stay tuned on our official portal for the live updates. ✨📌📌</b>
 
@@ -919,22 +1431,104 @@ let cp=capEl.value.trim();
 
 /* EMPTY CHECK */
 if(!ht || !dob || !sc || !cp){
-alert("ENTER YOUR CORRECT LOGIN CREDENTIALS");
+alert("🔐 PLEASE ENTER ALL DETAILS CORRECTLY 🔐");
 return;
 }
-if(sc!==SCHOOL_CODE){alert("INVALID SCHOOL CODE");return;}
-if(cp!==captcha){alert("CAPTCHA ERROR");gen();return;}
-if(!students[ht]){resultEl.innerHTML="INVALID DETAILS";return;}
-if(students[ht].dob!=dob){resultEl.innerHTML="DATE OF BIRTH ERROR";return;}
+if(sc!==SCHOOL_CODE){
+resultEl.innerHTML =
+`<div style="text-align:center;font-size:35px;font-weight:bold;color:darkred;">
+INVALID SCHOOL CODE
+</div>`;
+return;
+}
+
+if(cp!==captcha){
+resultEl.innerHTML =
+`<div style="text-align:center;font-size:35px;font-weight:bold;color:darkred;">
+CAPTCHA ERROR
+</div>`;
+gen();
+return;
+}
+
+if(!students[ht]){
+resultEl.innerHTML =
+`<div style="text-align:center;font-size:35px;font-weight:bold;color:darkred;">
+INVALID HALL TICKET NUMBER
+</div>`;
+return;
+}
+
+if(students[ht].dob!=dob){
+resultEl.innerHTML =
+`<div style="text-align:center;font-size:35px;font-weight:bold;color:darkred;">
+DATE OF BIRTH ERROR
+</div>`;
+return;
+}
 
 resultEl.innerHTML = `
 <div class="loading-box">
 <div style="font-size:21px;">
-⏳⏳⏳ CONNECTING YOU TO THE CICSE CLASS - IX WEB PORTAL SERVER ⏳⏳⏳<br><br>
+⏳⏳⏳ CONNECTING YOU TO THE CISCE CLASS – IX WEB PORTAL SERVER ⏳⏳⏳<br><br>
 
 <div id="stepText" class="step-text">🔐🔐🔐 VERIFYING YOUR LOGIN HALL TICKET NUMBER 🔐🔐🔐</div>
 <div class="loading-bar">
   <div class="loading-fill"></div>
+</div>
+<div class="authentication-panel">
+
+<div style="font-size:28px;color:#8B0000;">
+🔐 RESULT AUTHENTICATION STATUS 🔐
+</div>
+
+<br>
+
+<div class="auth-line">
+CANDIDATE CREDENTIAL VERIFICATION :
+<span class="auth-success">
+COMPLETING ⚙️
+</span>
+</div>
+
+
+<div class="auth-line">
+EXAMINATION RECORD VALIDATION :
+<span class="auth-success">
+CHECKING ⚙️
+</span>
+</div>
+
+
+<div class="auth-line">
+ACADEMIC DATABASE MATCH :
+<span class="auth-success">
+CONFIRMING ⚙️
+</span>
+</div>
+
+
+<div class="auth-line">
+DIGITAL SECURITY CHECK :
+<span class="auth-success">
+VERIFYING ⚙️
+</span>
+</div>
+
+
+<hr>
+
+
+<div style="
+font-size:26px;
+color:#1565c0;
+">
+
+STATUS : AUTHORIZED FOR VIEWING YOUR RESULTS.
+
+</div>
+
+
 </div>
 
 <div id="serverNo"
@@ -944,49 +1538,123 @@ font-size:24px;
 color:#1565c0;
 font-weight:bold;
 ">
-SERVER ID NUMBER : CICSE-2026-159263748-88 ✓
+SERVER – ID NUMBER : CISCE_2026_159263748_88 ✓
 </div>
 </div>
 `;
 
 /* STEP 1 */
 setTimeout(()=>{
-  document.getElementById("stepText").innerText = "🔗🔗🔗 AUTHENTICATING YOUR LOGIN CREDENTIALS 🔗🔗🔗";
-}, 10000);
+  let step=document.getElementById("stepText");
+  if(step){
+    step.innerText =
+    "🔗🔗🔗 AUTHENTICATING YOUR LOGIN CREDENTIALS 🔗🔗🔗";
+  }
+},0000);
 
 /* STEP 2 */
 setTimeout(()=>{
-  document.getElementById("stepText").innerText = "🎯🎯🎯 FETCHING YOUR RESULT SCORECARD DATA 🎯🎯🎯";
-}, 20000);
+  let step=document.getElementById("stepText");
+  if(step){
+    step.innerText =
+    "🎯🎯🎯 FETCHING YOUR RESULT SCORECARD DATA 🎯🎯🎯";
+  }
+},0000);
 
 setInterval(()=>{
 
-let n=Math.floor(Math.random()*9999);
+let server = document.getElementById("serverNo");
+
+if(server){
 
 let s=Math.floor(Math.random()*99);
 
-document.getElementById("serverNo").innerText =
-`SERVER ID NUMBER : CICSE-${2026}-159263748-${s} ✓`;
+server.innerText =
+`SERVER ID NUMBER : CISCE_2026_159263748_${s} ✓`;
 
-},5000);
+}
+
+},2500);
 
 /* FINAL STEP */
 setTimeout(()=>{
-  show(ht);
-}, 30000);
+
+let d = students[ht];
+
+resultEl.innerHTML = `
+
+<div class="result-celebration" style="display:block">
+
+<h1>
+🎉 RESULTS ACCESS AUTHORIZED 🎉
+</h1>
+
+<p>
+WELCOME<br>
+${d.name}
+</p>
+
+<p>
+🏆 YOUR CISCE CLASS – IX RESULT SCORECARD IS READY 🏆
+</p>
+
+
+<button class="unlock-btn" onclick="show('${ht}')">
+
+📋 VIEW MY SCORECARD 📋
+
+</button>
+</div>
+
+`;
+
+confetti({
+particleCount:300,
+spread:150,
+origin:{y:0.6}
+});
+},0000);
 }
 
 /* RESULT */
+function startSessionTimer(){
+
+  setTimeout(() => {
+
+    alert("YOU HAVE BEEN SUCCESSFULLY LOGGED OUT FROM THIS CURRENT SESSION. PLEASE ENTER BACK YOUR LOGIN CREDENTIALS TO VIEW YOUR RESULT SCORECARD.");
+
+    location.reload();
+
+  }, LOGOUT_TIME_MINUTES * 60 * 1000);
+
+}
 function show(ht){
-let d=students[ht];
+startSessionTimer();
+// Disable Hall Ticket Recovery after successful login
+document.getElementById("recoveryBox").style.display = "none";
+
+let recoveryBtn = document.querySelector(
+  'button[onclick="toggleRecoveryBox()"]'
+);
+
+if(recoveryBtn){
+  recoveryBtn.disabled = true;
+  recoveryBtn.innerHTML =
+  "";
+  recoveryBtn.style.background = "white";
+  recoveryBtn.style.color = "white";
+  recoveryBtn.style.cursor = "not-allowed";
+}
+let d = students[ht];
 let total=0,fail=false;
+let rank = d.rank || "N/A";
 
 let html=`<div class="preview" style="position:relative;">
 
 <div style="position:absolute;top:50%;left:50%;
 transform:translate(-50%,-50%) rotate(-35deg);
 opacity:0.08;font-size:300px;font-weight:bold;color:#0b2c5f;">
-CICSE
+CISCE
 </div>
 
 <h1 style="text-align:center;color:#2E7D32;margin:5px; font-size:29px;">
@@ -996,6 +1664,55 @@ COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS
 <h2 style="text-align:center;color:#8B0000;margin:5px;">
 📋📋📋 STATEMENT OF MARKS 📋📋📋
 </h2>
+<div style="
+border:2px solid #0b2c5f;
+padding:12px;
+margin:15px 0;
+border-radius:8px;
+background:#f8f9fa;
+">
+<div style="
+text-align:center;
+font-size:27px;
+font-weight:bold;
+color:#4B0082
+margin-bottom:15px;
+letter-spacing:1px;
+">
+🪪 CANDIDATE PARTICULARS AND EXAMINATION DETAILS 🪪
+</div>
+
+<table style="width:100%;font-size:18px;">
+<tr>
+<td><b>CISCE CLASS – IX HALL TICKET NUMBER</b></td>
+<td>${ht}</td>
+</tr>
+<tr>
+<td><b>NAME OF THE CANDIDATE</b></td>
+<td>${d.name}</td>
+</tr>
+<tr>
+<td><b>NAME OF THE SCHOOL</b></td>
+<td>ST. JOSEPH'S PUBLIC SCHOOL</td>
+</tr>
+
+<tr>
+<td><b>CODE OF THE SCHOOL</b></td>
+<td>${SCHOOL_CODE}</td>
+</tr>
+
+<tr>
+<td><b>ADDRESS OF THE SCHOOL</b></td>
+<td>A.G. PALACE, MALAKPET, HYDERABAD, TELANGANA, INDIA</td>
+</tr>
+
+<tr>
+<td><b>DATE OF BIRTH</b></td>
+<td>${d.dob}</td>
+</tr>
+</table>
+
+</div>
 <div style="height:25px;"> </div>
 
 <table>
@@ -1006,7 +1723,8 @@ COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS
 <th>MAXIMUM MARKS OUT OF 100</th>
 </tr>`;
  
-subjects.forEach(s=>{ 
+subjects.forEach(s=>{
+
 let m=d.marks[s];
 total+=m;
 if(m<35)fail=true;
@@ -1038,18 +1756,24 @@ html+=`</table>
 <div style="
   margin-top:10px;
   text-align:center;
-  color:#32cd32;
+  color: darkgreen;
   font-size:25px;
   font-weight:bold;
   line-height:1.6;
 ">
-<div style="height:25px;"> </div>
-<div style="font-size:30px; color:#32cd32;">
-<b>TOTAL :</b> ${total}
+<div style="font-size:30px;">
+<span style="color:red;"><b>TOTAL MARKS OBTAINED :</b></span>
+<span style="color:#32cd32;"><b>${total}</b></span>
 </div>
 
-<div style="font-size:30px; color:#32cd32;">
-<b>PERCENTAGE :</b> ${per}%
+<div style="font-size:30px;">
+<span style="color:red;"><b>PERCENTAGE OBTAINED :</b></span>
+<span style="color:#32cd32;"><b>${per}%</b></span>
+</div>
+
+<div style="font-size:30px;">
+<span style="color:red;"><b>SCHOOL RANK OF THE CANDIDATE :</b></span>
+<span style="color:#32cd32;"><b>${rank} / 150</b></span>
 </div>
 <div class="circle-wrap">
 
@@ -1089,14 +1813,14 @@ ${per}%
 </div>
 
 <div style="font-size:30px; color:#32cd32;">
-<b>RESULT :</b> <span style="color:${pass ? '#2e7d32' : '#c62828'}; font-weight:bold;">
+<b>RESULT OF THE CANDIDATE :</b> <span style="color:${pass ? '#2e7d32' : '#c62828'}; font-weight:bold;">
 ${pass ? "PASS ✔️" : "FAIL ✖️"}
 </span><br>
 </div>
 
 <div style="font-size:30px; color:#32cd32;">
-<b>REMARKS :</b> <span style="color:${pass ? '#2e7d32' : '#c62828'}; font-weight:bold;">
-${pass ? "QUALIFIED TO CLASS - X ✔️" : "NOT QUALIFIED TO CLASS - X ✖️"}
+<b>FINAL REMARKS :</b> <span style="color:${pass ? '#2e7d32' : '#c62828'}; font-weight:bold;">
+${pass ? "QUALIFIED TO CLASS – X ✔️" : "NOT QUALIFIED TO CLASS – X ✖️"}
 </div>
 
 </div>
@@ -1117,7 +1841,7 @@ color:#0000FF;
 margin-bottom:15px;
 ">
 
-<b>QR VERIFICATION CODE :</b>
+<b>QR VERIFICATION & ATTESTATION CODE</b>
 
 </div>
 
@@ -1129,13 +1853,13 @@ margin-bottom:15px;
 <div style="text-align:center;margin-top:15px;">
 <div style="font-size:30px; color:#b71c1c;">
 <div style="text-align:center;">
-<b>CHIEF COORDINATOR, CICSE [CLASS - IX]</b>
+<b>CHIEF COORDINATOR, CISCE [CLASS – IX]</b>
   </div>
 </div>
 
 <div style="margin-top:15px;border:2px dashed #0b2c5f;padding:10px;text-align:center;color:deepskyblue;">
 <div style="font-size:30px;">
-<b>THIS DOCUMENT WAS VERIFIED AND APPROVED DIGITALLY BY THE CHIEF COORDINATOR, CICSE. ✅✅✅</b>
+<b>THIS DOCUMENT WAS VERIFIED AND APPROVED DIGITALLY BY THE CHIEF COORDINATOR, CISCE. ✅✅✅</b>
 </div>
 <div style="
 margin-top:25px;
@@ -1165,7 +1889,7 @@ margin-bottom:15px;
 ${new Date().toLocaleString('en-IN')}
 </div>
 
-🔐 SECURED BY THE CICSE DIGITAL RESULT SYSTEM 🔐 v.3.0<br>
+🔐 SECURED BY THE CISCE DIGITAL RESULT SYSTEM 🔐 v.3.0<br>
 
 ©️ 2026. COUNCIL FOR THE INDIAN SCHOOL CERTIFICATE EXAMINATIONS ©️
 
@@ -1196,6 +1920,70 @@ width:100%;
 `;
 
 resultEl.innerHTML=html;
+
+if ('speechSynthesis' in window) {
+
+let subjectSpeech = "";
+
+subjects.forEach(s => {
+    subjectSpeech += `${s}. ${d.marks[s]} marks out of 100. `;
+});
+
+let speechText =
+`Welcome ${d.name}.
+
+Your CISCE Class Nine Board Re Examination RE–VERIFICATION Results for the yearTwenty Twenty Six scorecard is now ready.
+
+Your subject wise marks are as follows.
+
+${subjectSpeech}
+
+Your total marks obtained are ${total} out of 1100.
+
+Your overall percentage obtained is ${per} percent.
+
+Your School Rank is ${rank} out of 150 candidates.
+
+Your final examination result is ${pass ? "PASS." : "FAIL."}
+
+You are ${pass ? "qualified for promotion to Class Ten." : "not qualified for promotion to Class Ten."}
+
+The Council for the Indian School Certificate Examinations congratulates you on your performance and extends its best wishes for your future academic journey.
+
+Thank you for visiting the official CISCE Results Portal.`;
+
+let speech = new SpeechSynthesisUtterance(speechText);
+
+speech.lang = "en-IN";
+speech.rate = 0.82;
+speech.pitch = 0.95;
+speech.volume = 1;
+
+function setVoice() {
+
+    let voices = window.speechSynthesis.getVoices();
+
+    let bestVoice =
+        voices.find(v => v.lang === "en-IN") ||
+        voices.find(v => v.name.toLowerCase().includes("india")) ||
+        voices.find(v => v.lang.startsWith("en")) ||
+        voices[0];
+
+    if (bestVoice) {
+        speech.voice = bestVoice;
+    }
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
+if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.onvoiceschanged = setVoice;
+} else {
+    setVoice();
+}
+
+}
 if(pass){
 
 confetti({
@@ -1207,7 +1995,7 @@ origin:{ y:0.6 }
 }
 
 new QRCode(document.getElementById("qrcode"), {
-  text: "CICSE CLASS - IX SCORECARD VERIFIED" + ht,
+  text: "YOUR CISCE CLASS - IX RESULT SCORECARD WAS DIGITALLY VERIFIED AND ATTESTED BY THE CHIEF COORDINATOR'S OFFICE AUTHORITIES, CISCE. CISCE CLASS - IX BOARD HALL TICKET NUMBER : " + ht,
   width: 150,
   height: 150
 });
@@ -1216,16 +2004,24 @@ new QRCode(document.getElementById("qrcode"), {
 /* COUNTDOWN */
 setInterval(()=>{
 let diff=releaseTime-Date.now();
-
 if(diff<=0){
 liveDot.classList.replace("live-red","live-green");
-liveText.innerText="🔊 RESULTS ARE NOW LIVE 🔊";
+liveText.innerHTML = `
+<b style="
+font-size:25px;
+font-weight:bold;
+color:white;
+letter-spacing:5px;
+">
+🔊 RESULTS ARE NOW LIVE 🔊
+</b>
+`;
 countdownEl.innerHTML = `
 
 <div style="
 font-size:25px;
 font-weight:bold;
-color:#00ff66;
+color:white;
 line-height:1.4;
 animation:pulse 0.25s infinite;
 ">
@@ -1252,26 +2048,40 @@ margin-top:4px;
 color:white;
 line-height:1.6;
 ">
-<div style="font-weight:10000; color:white; font-size:16px; letter-spacing:4px;">
-RESULTS WILL BE DECLARED ON :<br>
-<div style="font-weight:10000; color:orange; font-size:20px; letter-spacing:4px;">
+<div style="font-weight:10000; color:white; font-size:23px; letter-spacing:4px;">
+RESULTS WILL BE DECLARED ON<br>
+<div style="font-weight:10000; color:orange; font-size:25px; letter-spacing:4px;">
 <b>
-${new Date(releaseTime).toLocaleString('en-IN',{
-day:'2-digit',
+${new Date(releaseTime).toLocaleDateString('en-US',{
 month:'long',
-year:'numeric',
-hour:'2-digit',
-minute:'2-digit'
+day:'2-digit',
+year:'numeric'
 })}
+ AT
+${new Date(releaseTime).toLocaleTimeString('en-US',{
+hour:'2-digit',
+minute:'2-digit',
+hour12:true
+}).replace('AM','A.M.').replace('PM','P.M.')}
 </b>
 
 </div>
 
 <div style="
 ">
-<div style="font-weight:10000; color:yellow; font-size:20px; letter-spacing:6px;">
-⏳ ${d}d ${h}h ${m}m ${s}s ⏳
-
+<div style="
+font-weight:10000;
+color:yellow;
+font-size:25px;
+letter-spacing:2px;
+">
+⏳
+${String(d).padStart(2,'0')} D :
+${String(h).padStart(2,'0')} H :
+${String(m).padStart(2,'0')} M :
+${String(s).padStart(2,'0')} S
+⏳
+</div>
 </div>
 
 `;
@@ -1314,41 +2124,252 @@ btn.style.color="white";
 }
 function updateDateTime(){
 
-let now = new Date();
+  let now = new Date();
 
-let date = now.toLocaleDateString('en-GB');
+  // Date parts
+  let day = now.getDate().toString().padStart(2,'0');
+  let monthNames = [
+    "JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE",
+    "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"
+  ];
+  let month = monthNames[now.getMonth()];
+  let year = now.getFullYear();
 
-let time = now.toLocaleTimeString('en-IN');
+  // Time (12-hour format)
+  let hours = now.getHours();
+  let minutes = now.getMinutes().toString().padStart(2,'0');
+  let seconds = now.getSeconds().toString().padStart(2,'0');
 
-document.getElementById("dateTimeFooter").innerHTML =
+  let ampm = hours >= 12 ? "P.M." : "A.M.";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // convert 0 → 12
 
-"SERVER PORTAL LAST UPDATED ON " + date +
+  let time = `${hours.toString().padStart(2,'0')}:${minutes}:${seconds} ${ampm}`;
 
-" AT " + time;
+  document.getElementById("dateTimeFooter").innerHTML =
+    `🗓️ DATE : ${month} ${day}, ${year}  | ⏰ TIME : ${time} `;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+setInterval(checkMaintenance,1000);
+checkMaintenance();
+function toggleRecoveryBox(){
+
+let box=document.getElementById("recoveryBox");
+
+if(box.style.display==="none"){
+
+box.style.display="block";
+
+box.scrollIntoView({
+behavior:"smooth"
+});
+
+}else{
+
+box.style.display="none";
 
 }
 
-setInterval(updateDateTime,1000);
+}
+function recoverHallTicket(){
+if(isLocked()){
 
-updateDateTime();
+resultEl.innerHTML = `
+<div style="text-align:center; line-height:2.0; font-size:21px; background:#E3F2FD; color:#0b2c5f;">
 
-</script>
-</body>
+<b>🎯🎯🎯‼️ MARK YOUR CALENDARS ‼️🎯🎯🎯</b><br>
+
+🚨 The moment of achievement for all the students is almost here to an end. 🚨<br>
+
+🎊🎊🎊 We are all honored to announce that our dearest CHIEF COORDINATOR, MR. KAMUTAPU SRI SAI ADITYA will officially declare the CISCE CLASS – IX BOARD RE–VERIFICATION RESULTS : 2026. 🔊🔊🔊<br>
+🎓🎓🎓 Success belongs to all those who persevere ‼️ 🎓🎓🎓<br>
+
+🏆🏆 The CISCE CLASS – IX BOARD appreciates the patience, dedication and hardwork shown by all the candidates throughout the academic session. 🏆🏆<br>
+
+📌📌✨ Stay tuned on our official portal for the live updates. ✨📌📌</b>
+
+</div>
+`;
+
+return;
+
+}
+let name=document.getElementById("rname").value.trim().toUpperCase();
+
+let school=document.getElementById("rschool").value.trim().toUpperCase();
+
+let code=document.getElementById("rscode").value.trim();
+
+let dob=document.getElementById("rdob").value.trim();
+
+let cap=document.getElementById("rcaptcha").value.trim();
+
+if(!name || !school || !code || !dob || !cap){
+
+alert("🔐 PLEASE ENTER ALL DETAILS CORRECTLY 🔐");
+
+return;
+
+}
+
+if(cap!==recoveryCaptcha){
+
+alert("CAPTCHA ERROR");
+
+genRecoveryCaptcha();
+
+return;
+
+}
+
+if(code!==SCHOOL_CODE){
+
+alert("INVALID SCHOOL CODE");
+
+return;
+
+}
+
+if(school!=="ST. JOSEPH'S PUBLIC SCHOOL"){
+
+alert("INVALID SCHOOL NAME");
+
+return;
+
+}
+
+let found=null;
+
+for(let ht in students){
+
+if(
+students[ht].name.toUpperCase()===name &&
+students[ht].dob===dob
+){
+
+found=ht;
+break;
+
+}
+
+}
+
+let result=document.getElementById("recoveryResult");
+
+if(found){
+
+result.innerHTML =
+`<div style="color:red;font-weight:bold;line-height:1.8;font-size:25px;">
+<div style="height:20px;"></div>
+
+🏛️ THE CREDENTIALS FURNISHED HAVE BEEN SUCCESSFULLY VERIFIED WITH THE CISCE SERVER DATABASE. 🏛️
+<br><br>
+✅ HALL TICKET NUMBER IS DISPLAYED BELOW. ✅
 </div>
 
-<script>
-function checkWebsiteStatus(){
+<br>
 
-if(Date.now() >= websiteOpenTime){
+<span style="font-size:40px;color:purple;font-weight:bold;">
+${found}
+</span>`;
 
-document.getElementById("websiteLock").style.display="none";
-document.getElementById("websiteContent").style.display="block";
+}else{
+
+result.innerHTML =
+`<div style="color:red;font-weight:bold;line-height:1.8;font-size:25px;">
+<div style="height:20px;"></div>
+
+❌ THE CREDENTIALS FURNISHED HAVE BEEN SUCCESSFULLY VERIFIED AND NO MATCHING RECORD WAS FOUND WITH THE CISCE SERVER DATABASE. PLEASE RE–ENTER YOUR LOGIN CREDENTIALS ❌
+
+</div>`;
 
 }
-
 }
 
-checkWebsiteStatus();
-setInterval(checkWebsiteStatus,1000);
 </script>
+<script>
+document.addEventListener("copy", function(e){
+    e.preventDefault();
+});
+
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+document.addEventListener("dragstart", function(e){
+    e.preventDefault();
+});
+
+document.addEventListener("selectstart", function(e){
+    e.preventDefault();
+});
+</script>
+<script>
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("dragstart", e => e.preventDefault());
+document.addEventListener("selectstart", e => e.preventDefault());
+
+document.onkeydown = function(e){
+  if(
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+    (e.ctrlKey && e.key.toUpperCase() === "U") ||
+    (e.ctrlKey && e.key.toUpperCase() === "S") ||
+    (e.ctrlKey && e.key.toUpperCase() === "C")
+  ){
+    e.preventDefault();
+    return false;
+  }
+};
+const loginInputs = [
+  document.getElementById("ht"),
+  document.getElementById("dob"),
+  document.getElementById("scode"),
+  document.getElementById("cap")
+];
+
+const forgotBtn = document.getElementById("forgotBtn");
+
+function updateForgotButton(){
+
+    let hasValue = false;
+
+    loginInputs.forEach(function(input){
+
+        if(input.value.trim() !== ""){
+            hasValue = true;
+        }
+
+    });
+
+    if(hasValue){
+
+        document.getElementById("forgotContainer").style.display = "none";
+document.getElementById("loginGap").style.display = "none";
+
+        document.getElementById("recoveryBox").style.display = "none";
+
+    }else{
+
+        document.getElementById("forgotContainer").style.display = "block";
+document.getElementById("loginGap").style.display = "block";
+
+    }
+
+}
+
+loginInputs.forEach(function(input){
+
+    input.addEventListener("input", updateForgotButton);
+
+});
+
+updateForgotButton();
+</script>
+</body>
 </html>
